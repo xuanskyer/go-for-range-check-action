@@ -33,6 +33,4 @@ runs:
         # echo "Processing files in ${{ inputs.target-directory }}"
         echo "Current working directory: $(pwd)"
         ls -la
-        cd go-for-range-check-action/action_go
-        ls -la
-        go run action.go ${{ inputs.max-for-range-level }} ${{ inputs.target-directory }} ${{ inputs.ignore-directory }}
+        go run go-for-range-check-action/action_go/action.go ${{ inputs.max-for-range-level }} ${{ inputs.target-directory }} ${{ inputs.ignore-directory }}
