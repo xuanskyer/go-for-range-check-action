@@ -34,4 +34,5 @@ runs:
         echo "Current working directory: $(pwd)"
         ls -la
         cd go-for-range-check-action
+        ls -la
         go run action.go ${{ inputs.max-for-range-level }} ${{ inputs.target-directory }} ${{ inputs.ignore-directory }}
