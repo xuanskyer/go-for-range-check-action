@@ -1,5 +1,5 @@
 name: Go For Range Check Action
-description: A simple example GitHub Action in Go
+description: A Go For Range Check Action
 author: xuanskyer
 inputs:
   max-for-range-level: # Maximum for loop nesting level, default: 3
