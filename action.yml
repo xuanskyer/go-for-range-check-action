@@ -24,6 +24,10 @@ runs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Generate and display tree
+      uses: kalw/tree-action@v0.2.0
+      with:
+        working-directory: .
 
     - name: Run Go For Range Check Action
       shell: sh
