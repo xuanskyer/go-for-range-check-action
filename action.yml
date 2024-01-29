@@ -22,7 +22,10 @@ runs:
       with:
         go-version: '1.20'  # go version
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
+      with:
+        repository: xuanskyer/go-for-range-check-action
+        path: go-for-range-check-action
 
     - name: Run Go For Range Check Action
       shell: sh
