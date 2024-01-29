@@ -24,7 +24,9 @@ runs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+
     - name: Run Go For Range Check Action
+      uses: ./.github/actions/go-for-range-check-action
       shell: sh
       run: |
         # echo "Processing files in ${{ inputs.target-directory }}"
