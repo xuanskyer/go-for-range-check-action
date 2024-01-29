@@ -1,0 +1,31 @@
+name: Go For Range Check Action
+description: A simple example GitHub Action in Go
+author: xuanskyer
+inputs:
+  max-for-range-level: # Maximum for loop nesting level, default: 3
+    description: 'Maximum for loop nesting level'
+    required: false
+    default: '3'
+  target-directory: # set scan target directory
+    description: 'scan target directory'
+    required: false
+    default: './'
+  ignore-directory: # set scan ignore target directory
+    description: 'ignore directory'
+    required: false
+    default: ''
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: '1.20'  # go version
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Run Go For Range Check Action
+      shell: sh
+      run: |
+        # echo "Processing files in ${{ inputs.target-directory }}"
+        go run action.go ${{ inputs.max-for-range-level }} ${{ inputs.target-directory }} ${{ inputs.ignore-directory }}
