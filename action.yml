@@ -24,13 +24,11 @@ runs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Setup tmate Debug Session
-      uses: mxschmitt/action-tmate@v3
-
     - name: Run Go For Range Check Action
       shell: sh
       run: |
         # echo "Processing files in ${{ inputs.target-directory }}"
         echo "Current working directory: $(pwd)"
         ls -la
-        go run ./action.go ${{ inputs.max-for-range-level }} ${{ inputs.target-directory }} ${{ inputs.ignore-directory }}
+        cd action_go
+        go run action.go ${{ inputs.max-for-range-level }} ${{ inputs.target-directory }} ${{ inputs.ignore-directory }}
