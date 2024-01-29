@@ -1,22 +1,27 @@
 name: Test Go For Range Check Action
-
 on:
   push:
-    branches:
-      - main
+    branches: ["test", "main", "master"]
+    tags: ["test*"]
 
 jobs:
-  test:
+  go-for-range-check:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Go For Range Check Action
+      - name: Set up Go
+        uses: actions/setup-go@v4
         with:
-          max-for-range-level: 5
-          target-directory: 'biz/'  # set scan target directory
+          go-version: '1.20'
+
+
+      - name: Run Go For Range Check Action
+        uses: xuanskyer/go-for-range-check-action@v1.0.15
+        with:
+          max-for-range-level: '3'
+          target-directory: 'biz'
           ignore-directory: '[\"vendor\"]'
+
+
