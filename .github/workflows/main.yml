@@ -16,6 +16,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Go For Range Check Action
+        uses: ./.github/actions/go-for-range-check-action
         with:
           max-for-range-level: 5
           target-directory: 'biz/'  # set scan target directory
