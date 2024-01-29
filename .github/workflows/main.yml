@@ -1,0 +1,23 @@
+name: Test Go For Range Check Action
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Go For Range Check Action
+        uses: ./
+        with:
+          max-for-range-level: 5
+          target-directory: 'biz/'  # set scan target directory
+          ignore-directory: '[\"vendor\"]'
