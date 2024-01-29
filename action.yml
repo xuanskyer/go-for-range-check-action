@@ -29,4 +29,4 @@ runs:
       shell: sh
       run: |
         # echo "Processing files in ${{ inputs.target-directory }}"
-        go run action.go ${{ inputs.max-for-range-level }} ${{ inputs.target-directory }} ${{ inputs.ignore-directory }}
+        go run ./action.go ${{ inputs.max-for-range-level }} ${{ inputs.target-directory }} ${{ inputs.ignore-directory }}
